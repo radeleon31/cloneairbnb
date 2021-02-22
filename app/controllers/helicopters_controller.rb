@@ -1,0 +1,2 @@
+class HelicoptersController < ApplicationController
+end

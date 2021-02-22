@@ -1,2 +1,25 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "banner.jpg", alt: "Helicopter-banner"%>);">
+  <div class="container">
+    <h1> Media-partner <strong>helicopter - renting</strong></h1>
+    <p>Explore our luxury helicopter offers!</p>
+    <a class="btn btn-flat" href="#">Explore</a>
+  </div>
+</div>
+<div class="container">
+    <h1> Rent <strong>what you desire</strong></h1>
+    <div class="cards">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path "helicopter-one.jpg", alt: "Helicopter-one"%>)">
+        Top class helicopters
+      </div>
+
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path "helicopter-two.jpg", alt: "Helicopter-two"%>)">
+        Enjoy the view of the city from above
+      </div>
+
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path "helicopter-three.jpg", alt: "Helicopter-three"%>)">
+        Go everywhere you want
+      </div>
+
+    </div>
+  </div>
+

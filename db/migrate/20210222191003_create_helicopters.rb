@@ -1,6 +1,6 @@
-class CreateHelicopoters < ActiveRecord::Migration[6.0]
+class CreateHelicopters < ActiveRecord::Migration[6.0]
   def change
-    create_table :helicopoters do |t|
+    create_table :helicopters do |t|
       t.float :price_hour
       t.integer :occupancy
       t.integer :autonomy

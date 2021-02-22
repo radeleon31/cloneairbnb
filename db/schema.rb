@@ -10,12 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_22_191003) do
+ActiveRecord::Schema.define(version: 2021_02_22_193832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "helicopoters", force: :cascade do |t|
+  create_table "bookings", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.float "total_amount"
+    t.boolean "status"
+    t.bigint "user_id", null: false
+    t.bigint "helicopter_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["helicopter_id"], name: "index_bookings_on_helicopter_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "helicopters", force: :cascade do |t|
     t.float "price_hour"
     t.integer "occupancy"
     t.integer "autonomy"
@@ -26,7 +39,7 @@ ActiveRecord::Schema.define(version: 2021_02_22_191003) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_helicopoters_on_user_id"
+    t.index ["user_id"], name: "index_helicopters_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,5 +54,7 @@ ActiveRecord::Schema.define(version: 2021_02_22_191003) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "helicopoters", "users"
+  add_foreign_key "bookings", "helicopters"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "helicopters", "users"
 end

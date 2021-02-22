@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_22_193832) do
+ActiveRecord::Schema.define(version: 2021_02_22_220740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "booking_reviews", force: :cascade do |t|
+    t.string "description"
+    t.integer "rating"
+    t.bigint "booking_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["booking_id"], name: "index_booking_reviews_on_booking_id"
+  end
 
   create_table "bookings", force: :cascade do |t|
     t.date "start_date"
@@ -42,6 +51,15 @@ ActiveRecord::Schema.define(version: 2021_02_22_193832) do
     t.index ["user_id"], name: "index_helicopters_on_user_id"
   end
 
+  create_table "pilot_reviews", force: :cascade do |t|
+    t.string "description"
+    t.integer "rating"
+    t.bigint "booking_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["booking_id"], name: "index_pilot_reviews_on_booking_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -54,7 +72,9 @@ ActiveRecord::Schema.define(version: 2021_02_22_193832) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "booking_reviews", "bookings"
   add_foreign_key "bookings", "helicopters"
   add_foreign_key "bookings", "users"
   add_foreign_key "helicopters", "users"
+  add_foreign_key "pilot_reviews", "bookings"
 end

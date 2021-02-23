@@ -6,8 +6,8 @@ class HelicoptersController < ApplicationController
   end
 
   def show
-    @review = Review.new
-    @booking = Booking.new
+    # @review = Review.new
+    # @booking = Booking.new
   end
 
   def new

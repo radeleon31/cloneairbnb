@@ -1,0 +1,24 @@
+
+<section style="margin-top: 60px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <%= link_to 'Edit Profile', edit_helicopter_path %>
+          </li>
+          <li class="list-group-item">
+            <%= link_to 'Reviews', review_helicopter_path  %>
+          </li>
+          <li class="list-group-item">
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              Log out
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+

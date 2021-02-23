@@ -1,77 +1,53 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/">Helicopter Rent</a>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <div class="ml-auto flex">
-        <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" name="query" type="search" placeholder="Search" aria-label="Search" value="">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-        <a class="btn btn-outline-primary my-2 my-sm-0 ml-2" href="/helicopters/new">Add Helicopter</a>
-    </div>
-    </div>
-</nav>
-
 <div class="map" style="background-image: url('https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1200')"></div>
-     
-    
+
+
+
 <div class="container margin-top-negative">
   <div class="row">
-    <div class="col-8">
+  
+    <div class='col-sm-8'>
+    
       <div class="flat-show-card">
         <h1><%= @helicopter.description %></h1>
         <p class="flat-show-address"><%= @helicopter.price_hour %> price for hour</p>
       </div>
-      <div class="flat-show-card">
+        <div class="flat-show-card"> 
         <h3><%= @helicopter.occupancy %>  Occupancy</h3>
         <h3><%= @helicopter.autonomy %>   of Autonomy</h3>
         <h3><%= @helicopter.category %>   of Category</h3>
         <h3><%= @helicopter.city %>       Departure city</h3>
         <h3><%= @helicopter.status %>     Status</h3>
-
-        <%# <p>Lovely warm comfortable and stylishly furnished house. Private bedroom and bathroom with shared living areas.</p> %>
-           <div class="map" style="background-image: url('https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1200')"></div>
+        h3><%= @helicopter.photo %>     foto</h3>
+          <div class="map" style="background-image: url('https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1200')"></div>
       </div>
     </div>
 
     <div class="col-4">
       <div class="flat-show-card">
         <h5>Book this Helicopter!</h5>
-
-        <form action="">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">From:</span>
-            <input type="text" class="form-control" placeholder="23/02/2021" aria-label="Username" aria-describedby="basic-addon1">
+        <div class="form-group">
+          <div class='input-group date' id='datetimepicker2'>
+              <input type='text' class="form-control" />
+              <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar">start</span>
+              </span>
           </div>
-          <div class="input-group mt-2">
-            <span class="input-group-addon" id="basic-addon1">To:</span>
-            <input type="text" class="form-control" placeholder="23/02/2021" aria-label="Username" aria-describedby="basic-addon1">
-          </div>
-          <input type="submit" value="Book" class="btn btn-success mt-2" style="width: 100%">
-        </form>
-      </div>
-      <div class="flat-show-card">
-        <h3>Details</h3>
-        <div class="flex">
-          <%# <div class="flex">
-            <i class="material-icons mr-2">people</i><span>2</span>
-          </div>
-          <div class="flex ml-3">
-            <i class="material-icons mr-2">euro_symbol</i> 65
-          </div> %>
-        </div>
-      </div>
-      <div class="flat-show-card">
-        <div class="flex-align">
-          <h6 class="no-mb">Share</h6>
-
-          <div class="flex">
-            <i class="fa fa-facebook-square fa-2x mr-2"></i>
-            <i class="fa fa-twitter-square fa-2x mr-2"></i>
-            <i class="fa fa-pinterest-square fa-2x mr-2"></i>
-            <i class="fa fa-envelope-square fa-2x"></i>
+          <br></br>
+          <div class='input-group date' id='datetimepicker3'>
+              <input type='text' class="form-control" />
+              <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar">end</span>
+              </span>
           </div>
         </div>
+      </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker2').datetimepicker();
+                 $('#datetimepicker3').datetimepicker();
+            });
+        </script>
+          <input type="submit" value="Booking" class="btn btn-success mt-2" style="width: 100%"  %>
       </div>
     </div>
   </div>

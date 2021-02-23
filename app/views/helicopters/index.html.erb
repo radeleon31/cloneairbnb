@@ -1,9 +1,10 @@
 <div class="row">
   <% @helicopters.each do |h| %>
   <div class="col-4">
-      <div class="flat-card">
-        <div class="flat-card-content">
-          <div class="flat-card-title">
+      <div class="helicopter-card">
+      <div class="helicopter-card-image" style="background-image: url('<%= cl_image_path h.photo.key, height: 300, crop: :fill %>')"></div>
+        <div class="helicopter-card-content">
+          <div class="helicopter-card-title">
             <h4><%= h.description %></h4>
           </div>
           <p><%= h.city %></p>
@@ -16,7 +17,7 @@
             </div>
           </div>
         </div>
-        <div class="flat-card-actions d-flex">
+        <div class="helicopter-card-actions d-flex">
             <p class = "mr-2"> <%= link_to 'More info', helicopter_path(h.id) %> </p>
             <p class = "mr-2"> <%= link_to 'Edit', edit_helicopter_path(h.id) %> </p>
             <p class = "mr-2"> <%= link_to 'Remove', helicopter_path(h.id), method: :delete, data: { confirm: 'Are you sure?' } %> </p>

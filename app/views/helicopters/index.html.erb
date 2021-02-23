@@ -1,24 +1,54 @@
+<body data-new-gr-c-s-check-loaded="14.997.0" data-gr-ext-installed="">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">Simple Airbnb</a>
 
-<section style="margin-top: 60px;">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3">
-        <ul class="list-group">
-          <li class="list-group-item">
-            <%= link_to 'Edit Profile', edit_helicopter_path %>
-          </li>
-          <li class="list-group-item">
-            <%= link_to 'Reviews', review_helicopter_path  %>
-          </li>
-          <li class="list-group-item">
-            <%= link_to destroy_user_session_path, method: :delete do %>
-              Log out
-            <% end %>
-          </li>
-        </ul>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="ml-auto flex">
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" name="query" type="search" placeholder="Search" aria-label="Search" value="">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+          <a class="btn btn-outline-primary my-2 my-sm-0 ml-2" href="/flats/new">Add Flat</a>
+        </div>
       </div>
+    </nav>
+
+    <div class="container mt-3">
+  <div class="row">
+    <div class="col-12">
+      <h1>All our Flats</h1>
     </div>
   </div>
-</section>
 
+  <div class="row">
+    <div class="col">
+        <p>All 4 flats.</p>
+    </div>
+  </div>
 
+  <div class="row">
+      <div class="col-4">
+        <div class="flat-card">
+          <div class="flat-card-image" style="background-image: url('helicopter-five.jpg')"></div>
+          <div class="flat-card-content">
+            <div class="flat-card-title">
+              <h4>Light &amp; Spacious Garden Flat London</h4>
+            </div>
+            <p>10 Clifton Gardens London W9 1DT</p>
+            <div class="flex">
+              <div class="flex">
+                <i class="material-icons mr-2">people</i><span>3</span>
+              </div>
+              <div class="flex ml-3">
+                <i class="material-icons mr-2">euro_symbol</i> 75
+              </div>
+            </div>
+          </div>
+          <div class="flat-card-actions">
+            <a href="/flats/4394">More info</a>
+            <a class="ml-3 text-warning" href="/flats/4394/edit">Edit</a>
+            <a data-confirm="Are you sure?" class="ml-3 text-danger" rel="nofollow" data-method="delete" href="/flats/4394">Remove</a>
+          </div>
+        </div>
+      </div>
+</body>

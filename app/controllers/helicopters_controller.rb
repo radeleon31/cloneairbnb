@@ -37,7 +37,7 @@ class HelicoptersController < ApplicationController
     @helicopter = Helicopter.new(helicopter_params)
     @helicopter.user = current_user
     if @helicopter.save
-    redirect_to helicopters_path(@helicopter)
+      redirect_to helicopters_path(@helicopter)
     else
       render :new
     end

@@ -17,26 +17,23 @@ puts 'Seed: Seeding...'
 
 user1 = User.create!(
   email: "blingbling@gmail.com",
-  # first_name: "bling bling",
-  # last_name: "Boy",
+  first_name: "bling bling",
+  last_name: "Boy",
   password: "123456",
-  password_confirmation: "123456"
 )
 
 user2 = User.create!(
   email: "Nasaka@yahoo.com",
-  # first_name: "Nasaka",
-  # last_name: "Wind",
+  first_name: "Nasaka",
+  last_name: "Wind",
   password: "123456",
-  password_confirmation: "123456"
 )
 
 user3 = User.create!(
   email: "Komono@gmail.com",
-  # first_name: "shiro",
-  # last_name: "spider",
+  first_name: "shiro",
+  last_name: "spider",
   password: "123456",
-  password_confirmation: "123456"
 )
 
 
@@ -45,7 +42,7 @@ helicopter1 = Helicopter.new(
   price_hour: 650.00,
   occupancy: 4,
   autonomy: 30,
-  type: "Robinson R44",
+  category: "Robinson R44",
   city: "New York",
   description: "fastest around",
   status: true
@@ -59,7 +56,7 @@ helicopter2 = Helicopter.new(
   price_hour: 650.00,
   occupancy: 4,
   autonomy: 30,
-  type: "Bell 407",
+  category: "Bell 407",
   city: "Boston",
   description: "Boom be wow!",
   status: true
@@ -72,7 +69,7 @@ helicopter3 = Helicopter.new(
   price_hour: 650.00,
   occupancy: 4,
   autonomy: 30,
-  type: "Bell 206",
+  category: "Bell 206",
   city: "Los Angeles",
   description: "The nicest helicopter",
   status: true

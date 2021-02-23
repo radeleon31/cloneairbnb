@@ -15,6 +15,6 @@ class HelicoptersController < ApplicationController
   end
 
   def helicopter_params
-    params.require(:helicopter).permit(:price_hour, :occupancy, :autonomy, :type, :description, :city, :status)
+    params.require(:helicopter).permit(:price_hour, :occupancy, :autonomy, :category, :description, :city, :status)
   end
 end

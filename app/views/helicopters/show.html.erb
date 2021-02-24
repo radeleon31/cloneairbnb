@@ -11,14 +11,14 @@
         <h1><%= @helicopter.description %></h1>
         <p class="flat-show-address"><%= @helicopter.price_hour %> price for hour</p>
       </div>
-        <div class="flat-show-card"> 
-        <h3><%= @helicopter.occupancy %>  Occupancy</h3>
-        <h3><%= @helicopter.autonomy %>   of Autonomy</h3>
-        <h3><%= @helicopter.category %>   of Category</h3>
-        <h3><%= @helicopter.city %>       Departure city</h3>
-        <h3><%= @helicopter.status %>     Status</h3>
-        h3><%= @helicopter.photo %>     foto</h3>
-          <div class="map" style="background-image: url('https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1200')"></div>
+        <div class="flat-show-card" > 
+          <h3><%= @helicopter.occupancy %>  Occupancy</h3>
+          <h3><%= @helicopter.autonomy %>   of Autonomy</h3>
+          <h3><%= @helicopter.category %>   of Category</h3>
+          <h3><%= @helicopter.city %>       Departure city</h3>
+          <h3><%= @helicopter.status %>     Status</h3>
+          <h3><%= @helicopter.photo  %>     foto</h3>
+       <div class="map" ></div>
       </div>
     </div>
 
@@ -49,6 +49,4 @@
         </script>
           <input type="submit" value="Booking" class="btn btn-success mt-2" style="width: 100%"  %>
       </div>
-    </div>
-  </div>
 </div>

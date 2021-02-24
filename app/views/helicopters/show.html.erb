@@ -27,8 +27,8 @@
         <h5>Book this Helicopter!</h5>
         <div class="form-group">
         <%= simple_form_for([@helicopter, @booking]) do |f| %>
-        <%= f.input :start_date %>
-        <%= f.input :end_date, class:"glyphicon glyphicon-calendar" %> 
+        <%= f.input :start_date, as: :string %>
+        <%= f.input :end_date, as: :string, class:"glyphicon glyphicon-calendar" %> 
         <%= f.submit %>
         <% end %>
         </div>

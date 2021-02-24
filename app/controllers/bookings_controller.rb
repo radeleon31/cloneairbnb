@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
     @booking.helicopter = @helicopter
     @booking.status = true
     if @booking.save
-      redirect_to helicopter_path(@helicopter)
+      redirect_to helicopter_path(@helicopter), notice: "Booked!"
     else
       render "helicopters/show", object: @helicopter
     end

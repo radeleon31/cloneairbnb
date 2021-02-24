@@ -2,7 +2,7 @@
   <div class="container">
     <h1> Media-partner <strong>helicopter - renting</strong></h1>
     <p><span id="banner-typed-text"></span></p>
-    <a class="btn btn-flat" href="#">Explore</a>
+    <%= link_to "Explore!", helicopters_path, class:"btn btn-flat" %>
   </div>
 </div>
 
@@ -26,15 +26,12 @@
 <div class="black mt-5 mb-5">
   <div class="cards-two center">
       <div class="card-category-two" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path "helicopter-four.jpg", alt: "Helicopter-four"%>)">
-        Rent an helicopter
+        <%= link_to "Rent a Helicopter", helicopters_path, class:"text-white display-4" %>
       </div>
 
       <div class="card-category-two" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path "helicopter-five.jpg", alt: "Helicopter-five"%>)">
-        <%= link_to "Offer you helicopter", new_helicopter_path %>
+        <%= link_to "Offer you helicopter", new_helicopter_path, class:"text-white display-4" %>
         
       </div>
     </div>
 </div>
-
-
-<div class="mt-5">FOOTER AND NAVBAR PENDING</div>

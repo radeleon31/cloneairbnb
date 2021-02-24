@@ -1,5 +1,10 @@
-<div class="map" style="background-image: url('https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1200')"></div>
-
+<%# <div class="map" style="background-image: url('https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1200')"></div> %>
+<div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @helicopter.photo.key%>);">
+  <div class="container">
+    <h1><%= @helicopter.category %></h1>
+    <h2><%= @helicopter.description.capitalize %></h2>
+  </div>
+</div>
 
 
 <div class="container margin-top-negative">
@@ -8,28 +13,25 @@
     <div class='col-sm-8'>
     
       <div class="flat-show-card">
-        <h1><%= @helicopter.description %></h1>
-        <p class="flat-show-address"><%= @helicopter.price_hour %> price for hour</p>
-      </div>
-        <div class="flat-show-card" > 
-          <h3><%= @helicopter.occupancy %>  Occupancy</h3>
-          <h3><%= @helicopter.autonomy %>   of Autonomy</h3>
-          <h3><%= @helicopter.category %>   of Category</h3>
-          <h3><%= @helicopter.city %>       Departure city</h3>
-          <h3><%= @helicopter.status %>     Status</h3>
-          <h3><%= @helicopter.photo  %>     foto</h3>
-       <div class="map" ></div>
-      </div>
+        
+        <h2 class="flat-show-address"> Price: <%= @helicopter.price_hour %></h2>
+        </div>
+          <div class="flat-show-card" > 
+            <h3>Occupancy: <%= @helicopter.occupancy %>  </h3>
+            <h3>Autonomy: <%= @helicopter.autonomy %></h3>
+            <h3>Model: <%= @helicopter.category %></h3>
+            <h3>Departure city: <%= @helicopter.city %></h3>
+        </div>
     </div>
 
     <div class="col-4">
       <div class="flat-show-card">
-        <h5>Book this Helicopter!</h5>
+        <h3>Book this Helicopter!</h3>
         <div class="form-group">
         <%= simple_form_for([@helicopter, @booking]) do |f| %>
-        <%= f.input :start_date, as: :string %>
-        <%= f.input :end_date, as: :string, class:"glyphicon glyphicon-calendar" %> 
-        <%= f.submit %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %> 
+        <%= f.button :submit, class: "btn btn-success w-100" %>
         <% end %>
         </div>
       </div>

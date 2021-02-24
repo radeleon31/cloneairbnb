@@ -48,5 +48,9 @@
             });
         </script>
           <input type="submit" value="Booking" class="btn btn-success mt-2" style="width: 100%"  %>
+          <td>
+            <%= link_to "booking", new_helicopter_booking_path(@helicopter) %>
+              </td>
       </div>
+       <%= link_to "Back to all helicopters", helicopters_path %>
 </div>

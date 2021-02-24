@@ -1,30 +1,36 @@
-<div class="row">
-  <% @helicopters.each do |h| %>
-  <div class="col-4">
-      <div class="helicopter-card">
-      <div class="helicopter-card-image" ></div>
-        <div class="helicopter-card-image" style="background-image: url('<%= cl_image_path h.photo.key, height: 300, crop: :fill %>')"></div> %>
-        <div class="helicopter-card-content">
-          <div class="helicopter-card-title">
-            <h4><%= h.description %></h4>
-          </div>
-          <p><%= h.city %></p>
-          <div class="d-flex">
-            <div class="d-flex">
-              <span> </span>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-12">
+      <h1>All our Helicopters (<%= @helicopters.count %>) </h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <% @helicopters.each do |helicopter| %>
+      <div class="col-4">
+        <div class="helicopter-card">
+          <div class="helicopter-card-image" style="background-image: url('<%= cl_image_path helicopter.photo.key%>')"></div>
+          <div class="helicopter-card-content">
+            <div class="helicopter-card-title">
+              <h4><%= helicopter.description %></h4>
             </div>
-            <div class="d-flex ml-3">
-              <span> </span>
+            <p><%= helicopter.category%></p>
+            <div class="flex">
+              <div class="flex">
+                <i class="material-icons mr-2">people</i><span><%= helicopter.occupancy %></span>
+              </div>
+              <div class="flex ml-3">
+                <i class="material-icons mr-2">euro_symbol</i> <%= helicopter.price_hour %>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="helicopter-card-actions d-flex">
-            <p class = "mr-2"> <%= link_to 'More info', helicopter_path(h.id) %> </p>
-            <p class = "mr-2"> <%= link_to 'Edit', edit_helicopter_path(h.id) %> </p>
-            <p class = "mr-2"> <%= link_to 'Remove', helicopter_path(h.id), method: :delete, data: { confirm: 'Are you sure?' } %> </p>
+          <div class="helicopter-card-actions d-flex">
+            <p class = "mr-2"> <%= link_to 'More info', helicopter_path(helicopter.id) %> </p>
+            <p class = "mr-2"> <%= link_to 'Edit', edit_helicopter_path(helicopter.id) %> </p>
+            <p class = "mr-2"> <%= link_to 'Remove', helicopter_path(helicopter.id), method: :delete, data: { confirm: 'Are you sure?' } %> </p>
+          </div>
         </div>
       </div>
-    </div>
-  <%end%>
- </div>
-
+    <% end %>
+  </div>
+</div>

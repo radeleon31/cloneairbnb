@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :helicopters do
     resources :bookings, only: [:new, :create, :edit, :update]
   end
-    resources :bookings, only: [:show, :destroy, :index]
+    resources :bookings, only: [:destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

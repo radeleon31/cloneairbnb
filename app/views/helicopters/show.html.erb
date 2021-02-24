@@ -46,7 +46,18 @@
                 $('#datetimepicker2').datetimepicker();
                  $('#datetimepicker3').datetimepicker();
             });
+
         </script>
+
+
+        <%= simple_form_for([@helicopter, @booking]) do |f| %>
+        <%= f.input :start_date, class:"glyphicon glyphicon-calendar" %>
+        <%= f.input :end_date, class:"glyphicon glyphicon-calendar" %> 
+        <%= f.submit %>
+        <% end %>
+
           <input type="submit" value="Booking" class="btn btn-success mt-2" style="width: 100%"  %>
       </div>
 </div>
+
+

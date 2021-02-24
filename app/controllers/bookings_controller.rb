@@ -1,26 +1,18 @@
 class BookingsController < ApplicationController
   
-  def new
-    @booking = Booking.new
-  end
+  #definir acción para cada tipo de usuario con current_user.bookings (usando su propia ruta).
 
   def create
+    @booking = Booking.new(booking_params)
     @helicopter = Helicopter.find(params[:helicopter_id])
     @booking.user = current_user
     @booking.helicopter = @helicopter
-    if booking.save
-    redirect_to booking_path(@booking)    
+    @booking.status = true
+    if @booking.save
+    redirect_to helicopter_path(@helicopter)    
     else
-      redirect_to helicopter_path(@helicopter)
+      render "helicopters/show", object: @helicopter
     end
-  end
-  
-  def index
-    @bookings = Booking.all
-  end
-    
-  def show
-    @booking = Booking.find(params[:helicopter_id])
   end
     
   def destroy
@@ -31,6 +23,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:helicopter_id, :user_id)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 end

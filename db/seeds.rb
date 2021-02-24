@@ -5,13 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "open-uri"
 
 puts 'Seed: Deleting existing records'
 
 # Review.delete_all
 # Booking.delete_all
+Booking.delete_all
 Helicopter.delete_all
 User.delete_all
+
 
 puts 'Seed: Seeding...'
 
@@ -47,9 +50,12 @@ helicopter1 = Helicopter.new(
   description: "fastest around",
   status: true
 
+
 )
 
 helicopter1.user = user1
+file = URI.open('https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/3c/04/70.jpg')
+helicopter1.photo.attach(io: file, filename: 'helicopter-1.png', content_type: 'image/png')
 helicopter1.save!
 
 helicopter2 = Helicopter.new(
@@ -63,6 +69,8 @@ helicopter2 = Helicopter.new(
 )
 
 helicopter2.user = user1
+file = URI.open('https://lh3.googleusercontent.com/proxy/MuRWSxdQtUwpCQlJRiLWGxHz3Tp31t3e-rMF_ASH1HWxabFKT4OVq8Ug9kI5QW7EzbqLrZ30-VCKiSRNrz2lgy8AEX_nvPeYmqsjzogcpj8j7yp39Z505--rYO19')
+helicopter2.photo.attach(io: file, filename: 'helicopter-1.png', content_type: 'image/png')
 helicopter2.save!
 
 helicopter3 = Helicopter.new(
@@ -76,6 +84,8 @@ helicopter3 = Helicopter.new(
 )
 
 helicopter3.user = user2
+file = URI.open('https://www.maxim.com/.image/t_share/MTcwOTA1NzE1NTI1ODIxNzU0/luxury-helicopters-4.jpg')
+helicopter3.photo.attach(io: file, filename: 'helicopter-1.png', content_type: 'image/png')
 helicopter3.save!
 
 # booking1 = Booking.create!(

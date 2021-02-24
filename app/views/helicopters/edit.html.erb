@@ -1,49 +1,21 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    Tell us about your amazing Helicopter!
+   You may update your Helicopter here!
   </div>
   <div class="panel-body">
     <div class="container">
 
-      <%= form_for @helicopter do |f| %>
-
-        <div class="row">
-
-          <div class="col-md-4 select">
-            <div class="form-group">
-              <label>Price per Hour</label>
-              <%= f.text_field :price_hour %>
-            </div>
-          </div>
-
-          <div class="col-md-4 select">
-            <div class="form-group">
-              <label>Description</label>
-              <%= f.text_field :description %>
-            </div>
-          </div>
-
-          <div class="col-md-4 select">
-            <div class="form-group">
-              <label>occupancy</label>
-              <%= f.select :occupancy, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]],
-                            id: "occupancy", prompt: "Select...", class: "form-control" %>
-            </div>
-          </div>
-
-          <div class="col-md-4 select">
-            <div class="form-group">
-              <label>autonomy</label>
-              <%= f.select :autonomy, [["10", 10], ["20", 20], ["30", 30], ["40+", 40]],
-                            id: "autonomy", prompt: "Select...", class: "form-control" %>
-            </div>
-          </div>
-        </div>
-
-        <div><%= f.submit "Create My helicopter", class: "btn btn-primary" %></div>
-
-      <% end %>
-
+      <%= simple_form_for(@helicopter) do |f| %>
+  <%= f.input :price_hour %>
+  <%= f.input :occupancy, collection: 1..5 %>
+  <%= f.input :autonomy %>
+  <%= f.input :category %>
+  <%= f.input :city %>
+  <%= f.input :description %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit :class => "btn btn-primary" %>
+<% end %>
+  <%= link_to "back", helicopters_path %>
     </div>
   </div>
 </div>

@@ -113,6 +113,9 @@
   .cards-two {
     grid-template-columns: 1fr;
   }
+  .helicopter-card {
+    grid-template-columns: 1fr;
+  }
 
 }
 
@@ -138,6 +141,9 @@
     border-radius: 5px;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
   }
+  .helicopter-card {
+    grid-template-columns: 1fr;
+  }
 }
 
 // Medium devices (tablets, 768px and up)
@@ -161,6 +167,9 @@
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     border-radius: 5px;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+  .helicopter-card {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -186,6 +195,9 @@
     border-radius: 5px;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
   }
+  .helicopter-card {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 // Extra large devices (large desktops, 1200px and up)
@@ -209,6 +221,9 @@
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     border-radius: 5px;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+  .helicopter-card {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 .flat-show-booking {

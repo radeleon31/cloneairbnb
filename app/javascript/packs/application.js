@@ -30,10 +30,13 @@ import "bootstrap";
 
 import { initUpdateNavbarOnScroll, toggleNavbar  } from '../components/navbar';
 import { loadDynamicBannerText } from '../components/banner';
+import { initFlatpickr } from "../plugins/flatpickr";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   initUpdateNavbarOnScroll();
   loadDynamicBannerText();
+  initFlatpickr();
   toggleNavbar();
 });
+

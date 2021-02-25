@@ -36,3 +36,7 @@ document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
   loadDynamicBannerText();
 });
+
+import { initFlatpickr } from "../plugins/flatpickr";
+
+initFlatpickr();

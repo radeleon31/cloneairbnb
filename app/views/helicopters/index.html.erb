@@ -7,27 +7,26 @@
 
   <div class="row">
     <% @helicopters.each do |helicopter| %>
-      <div class="col-4">
+      <div class="col-6 col-sm-4">
         <div class="helicopter-card">
+          <%= link_to helicopter_path(helicopter.id) do %>
           <div class="helicopter-card-image" style="background-image: url('<%= cl_image_path helicopter.photo.key%>')"></div>
           <div class="helicopter-card-content">
             <div class="helicopter-card-title">
               <h4><%= helicopter.description %></h4>
+               <% end %>
             </div>
             <p><%= helicopter.category%></p>
             <div class="flex">
               <div class="flex">
-                <i class="material-icons mr-2">people</i><span><%= helicopter.occupancy %></span>
+                <i class="fas fa-male"></i><span><%= helicopter.occupancy %></span>
               </div>
               <div class="flex ml-3">
-                <i class="material-icons mr-2">euro_symbol</i> <%= helicopter.price_hour %>
+                <i class="fas fa-dollar-sign"></i> <%= helicopter.price_hour %>
               </div>
             </div>
           </div>
           <div class="helicopter-card-actions d-flex">
-            <% if policy(helicopter).show? %>
-              <p class = "mr-2"> <%= link_to 'More info', helicopter_path(helicopter.id) %> </p>
-              <% end %>
             <% if policy(helicopter).edit? %>
               <p class = "mr-2"> <%= link_to 'Edit', edit_helicopter_path(helicopter.id) %> </p>
             <% end %>

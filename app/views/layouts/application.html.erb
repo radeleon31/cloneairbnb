@@ -18,20 +18,14 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
   </head>
 
-  <body> 
-     <%= render 'shared/navbar'%>
+  <body>
+    <% if controller_name != "helicopters" && action_name != "index" %>
+      <%= render 'shared/navbar'%>
+    <% else %>
+      <%= render 'shared/navbar-white'%>
+    <% end%>
 
-     
-      <% if user_signed_in?%>
-
-      <% else%>
-      <% end%>
-
-<%= render 'shared/flashes' %>
-
-
-
-
+    <%= render 'shared/flashes' %>
     <%= yield %>
   </body>
 </html>

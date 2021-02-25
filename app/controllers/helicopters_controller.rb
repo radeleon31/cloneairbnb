@@ -7,7 +7,6 @@ class HelicoptersController < ApplicationController
 
   def show
     @booking = Booking.new
-    # authorize @helicopter
   end
 
   def new

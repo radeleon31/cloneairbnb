@@ -19,6 +19,7 @@
   </head>
 
   <body>
+
     <% if controller_name != "helicopters" && action_name != "index" %>
       <%= render 'shared/navbar'%>
     <% else %>
@@ -26,6 +27,8 @@
     <% end%>
 
     <%= render 'shared/flashes' %>
+
     <%= yield %>
+    <%= render 'shared/footer'%>
   </body>
 </html>

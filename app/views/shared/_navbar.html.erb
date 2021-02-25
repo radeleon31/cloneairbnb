@@ -1,39 +1,63 @@
 <nav class="nav-fixed">
       <div class="nav-center">
         <!-- nav header -->
+
+
+        <% if user_signed_in? %>
+          <div class="nav-header">
+                <%= image_tag "https://kitt.lewagon.com/placeholder/users/sarahlafer", class: "avatar-bordered mr-5", alt: "avatar-bordered" %>
+            <div class="navbar-brand">
+              <%= link_to 'HELI', root_path, class:"brand-one" %>
+              <%= link_to 'RENT', root_path, class:"brand-two" %>
+            </div>
+            
+            <button class="nav-toggle">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+        <% else %>
         <div class="nav-header">
-          <%= link_to 'HelicopterRenting', root_path, class: 'navbar-brand' %>
-          <button class="nav-toggle">
-            <i class="fas fa-bars"></i>
-          </button>
-        </div>
+            <div class="navbar-brand">
+              <%= link_to 'HELI', root_path, class:"brand-one" %>
+              <%= link_to 'RENT', root_path, class:"brand-two" %>
+            </div>
+            
+            <button class="nav-toggle">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+        <% end %>
         <!-- links -->
-        
-        <ul class="links">
-          <li>
-            <form class="navbar-form navbar-left" role="search">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-              </div>
-              <button type="submit" class="btn btn-flat">Search</button>
-            </form>
-          </li>
-          <li>
-            
-          </li>
-          <li>
-          <button type="button" class="btn btn-flat">
-            <%= link_to 'Sign In', new_user_session_path%>
-          </button>
-            
-    
-          </li>
-          <li>
-          <button type="button" class="btn btn-flat">
-            <%= link_to 'Sign Up', new_user_registration_path %>
-          </button>
-            
-          </li>
-        </ul>
+        <% if user_signed_in? %>
+          <ul class="links">
+            <li>
+              <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+              </form>
+            </li>
+            <li>
+              <button type="button" class="btn btn-flat text-white">
+                <%= link_to 'Logout', destroy_user_session_path, method: :delete, class:"text_white"%>
+              </button>
+            </li>
+              
+          </ul>
+        <% else %>
+          <ul class="links">
+            <li>
+            <button type="button" class="btn btn-flat text-white">
+              <%= link_to 'Login', new_user_session_path, class:"text_white"%>
+            </button>
+            </li>
+            <li>
+            <button type="button" class="btn btn-flat text-white">
+              <%= link_to 'Sign Up', new_user_registration_path, class:"text_white" %>
+            </button>
+            </li>
+          </ul>
+        <% end %>
       </div>
     </nav>

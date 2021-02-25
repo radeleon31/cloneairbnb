@@ -62,6 +62,34 @@ nav {
   height: 250px;
   background-color: white;
 }
+
+.btn-flat{
+  color:white !important;
+  background:#9955cc !important;
+}
+.btn-primary{
+  background:#dd1188 !important;
+  }
+.brand-one{
+  letter-spacing: 3px;
+  font-size: 24px;
+  color: #dd1188;
+}
+.btn-flat:hover{
+  color: #FFFFFF!important;
+  text-decoration: none;
+}
+.brand-two{
+  letter-spacing: 3px;
+  font-size: 24px;
+  color:#9955cc;
+}
+
+.brand-one:hover,.brand-two:hover {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
 @media screen and (min-width: 800px) {
   .nav-center {
     max-width: 1170px;

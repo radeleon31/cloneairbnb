@@ -9,7 +9,9 @@
     <% @helicopters.each do |helicopter| %>
       <div class="col-4">
         <div class="helicopter-card">
+          <%= link_to helicopter_path(helicopter.id) do %>
           <div class="helicopter-card-image" style="background-image: url('<%= cl_image_path helicopter.photo.key%>')"></div>
+          <% end %>
           <div class="helicopter-card-content">
             <div class="helicopter-card-title">
               <h4><%= helicopter.description %></h4>

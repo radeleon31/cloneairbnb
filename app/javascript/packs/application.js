@@ -28,9 +28,11 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
+import { bookingTotalPrice } from "../components/bookingTotalPrice";
 import { initUpdateNavbarOnScroll, toggleNavbar  } from '../components/navbar';
 import { loadDynamicBannerText } from '../components/banner';
 import { initFlatpickr } from "../plugins/flatpickr";
+import { start } from "turbolinks";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
@@ -38,5 +40,6 @@ document.addEventListener('turbolinks:load', () => {
   loadDynamicBannerText();
   toggleNavbar();
   initFlatpickr();
+  bookingTotalPrice();
 });
 

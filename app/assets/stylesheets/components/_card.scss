@@ -211,3 +211,13 @@
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
   }
 }
+.flat-show-booking {
+    display: flex;
+    align-items: center;
+    transition: all 0.15s ease;
+    padding: 0 50px;
+    max-width: 1100px;
+    margin: auto;
+    margin-top: 24px;
+    border-left: 6px solid #ECECEC;
+}

@@ -37,5 +37,6 @@ document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
   loadDynamicBannerText();
   toggleNavbar();
+  initFlatpickr();
 });
-initFlatpickr();
+

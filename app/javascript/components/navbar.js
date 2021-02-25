@@ -3,7 +3,6 @@ const initUpdateNavbarOnScroll = () => {
   if (navbar) {
     window.addEventListener('scroll', () => {
       if (window.scrollY >= window.innerHeight) {
-        console.log("hello")
         navbar.classList.add('back-white');
       } else {
         navbar.classList.remove('back-white');

@@ -20,13 +20,14 @@
 
   <body>
 
-    <%# <p class="notice"> %>
-      <%# <%= notice %>
-    <%# </p> %>
-    <%# <p class="alert"> %>
-    <%# <%= alert %>
-    <%# </p> %>
-     <%= render 'shared/navbar'%>
+    <% if controller_name != "helicopters" && action_name != "index" %>
+      <%= render 'shared/navbar'%>
+    <% else %>
+      <%= render 'shared/navbar-white'%>
+    <% end%>
+
+    <%= render 'shared/flashes' %>
+
     <%= yield %>
     <%= render 'shared/footer'%>
   </body>

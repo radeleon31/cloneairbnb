@@ -2,15 +2,17 @@ class HelicoptersController < ApplicationController
   before_action :set_helicopter, only: [:show, :edit, :update, :destroy]
 
   def index
-    @helicopters = Helicopter.all
+    @helicopters = policy_scope(Helicopter)
   end
 
   def show
     @booking = Booking.new
+    authorize @helicopter
   end
 
   def new
     @helicopter = Helicopter.new
+    authorize @helicopter
   end
 
   def edit
@@ -35,6 +37,7 @@ class HelicoptersController < ApplicationController
   def create
     @helicopter = Helicopter.new(helicopter_params)
     @helicopter.user = current_user
+    authorize @helicopter
     if @helicopter.save
       redirect_to helicopters_path(@helicopter)
     else
@@ -46,6 +49,7 @@ class HelicoptersController < ApplicationController
 
   def set_helicopter
     @helicopter = Helicopter.find(params[:id])
+    # authorize @helicopter
   end
 
   def helicopter_params

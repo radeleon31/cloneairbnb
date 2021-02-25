@@ -1,12 +1,11 @@
 class BookingsController < ApplicationController
-  
   #definir acción para cada tipo de usuario con current_user.bookings (usando su propia ruta).
 
   def create
-
     @booking = Booking.new(booking_params)
     @helicopter = Helicopter.find(params[:helicopter_id])
     @booking.user = current_user
+    authorize @booking
     @booking.helicopter = @helicopter
     @booking.status = true
     if @booking.save
@@ -15,9 +14,10 @@ class BookingsController < ApplicationController
       render "helicopters/show", object: @helicopter
     end
   end
-    
+
   def destroy
     @booking = Booking.find(params[:helicopter_id])
+    authorize @booking
     @booking.destroy
   end
 

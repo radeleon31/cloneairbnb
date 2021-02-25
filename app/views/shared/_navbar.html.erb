@@ -39,23 +39,17 @@
               </form>
             </li>
             <li>
-              <button type="button" class="btn btn-flat text-white">
-                <%= link_to 'Logout', destroy_user_session_path, method: :delete, class:"text_white"%>
-              </button>
+                <%= link_to 'Logout', destroy_user_session_path, method: :delete, class:"btn btn-flat"%>
             </li>
               
           </ul>
         <% else %>
           <ul class="links">
             <li>
-            <button type="button" class="btn btn-flat text-white">
-              <%= link_to 'Login', new_user_session_path, class:"text_white"%>
-            </button>
+              <%= link_to 'Login', new_user_session_path, class:"btn btn-flat"%>
             </li>
             <li>
-            <button type="button" class="btn btn-flat text-white">
-              <%= link_to 'Sign Up', new_user_registration_path, class:"text_white" %>
-            </button>
+              <%= link_to 'Sign Up', new_user_registration_path, class:"btn btn-flat" %>
             </li>
           </ul>
         <% end %>

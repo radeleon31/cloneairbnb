@@ -18,15 +18,20 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
   </head>
 
-  <body>
-  
-    <%# <p class="notice"> %>
-      <%# <%= notice %>
-    <%# </p> %>
-    <%# <p class="alert"> %>
-    <%# <%= alert %>
-    <%# </p> %>
+  <body> 
      <%= render 'shared/navbar'%>
+
+     
+      <% if user_signed_in?%>
+
+      <% else%>
+      <% end%>
+
+<%= render 'shared/flashes' %>
+
+
+
+
     <%= yield %>
   </body>
 </html>

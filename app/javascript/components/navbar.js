@@ -1,15 +1,23 @@
 const initUpdateNavbarOnScroll = () => {
-  const navbar = document.querySelector('.navbar-custom');
+  const navbar = document.querySelector('.nav-fixed');
   if (navbar) {
     window.addEventListener('scroll', () => {
       if (window.scrollY >= window.innerHeight) {
         console.log("hello")
-        navbar.classList.remove('bg-transparent');
+        navbar.classList.add('back-white');
       } else {
-        navbar.classList.add('bg-transparent');
+        navbar.classList.remove('back-white');
       }
     });
   }
 }
 
-export { initUpdateNavbarOnScroll };
+const toggleNavbar = () => {
+  const navToggle = document.querySelector(".nav-toggle");
+  const links = document.querySelector(".links");
+
+  navToggle.addEventListener("click", function () {
+    links.classList.toggle("show-links");
+  });
+}
+export { initUpdateNavbarOnScroll, toggleNavbar };

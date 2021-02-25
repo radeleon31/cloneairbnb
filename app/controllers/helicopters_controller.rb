@@ -7,7 +7,7 @@ class HelicoptersController < ApplicationController
 
   def show
     @booking = Booking.new
-    authorize @helicopter
+    # authorize @helicopter
   end
 
   def new
@@ -49,7 +49,7 @@ class HelicoptersController < ApplicationController
 
   def set_helicopter
     @helicopter = Helicopter.find(params[:id])
-    # authorize @helicopter
+    authorize @helicopter
   end
 
   def helicopter_params

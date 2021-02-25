@@ -25,9 +25,15 @@
             </div>
           </div>
           <div class="helicopter-card-actions d-flex">
-            <p class = "mr-2"> <%= link_to 'More info', helicopter_path(helicopter.id) %> </p>
-            <p class = "mr-2"> <%= link_to 'Edit', edit_helicopter_path(helicopter.id) %> </p>
-            <p class = "mr-2"> <%= link_to 'Remove', helicopter_path(helicopter.id), method: :delete, data: { confirm: 'Are you sure?' } %> </p>
+            <% if policy(helicopter).show? %>
+              <p class = "mr-2"> <%= link_to 'More info', helicopter_path(helicopter.id) %> </p>
+              <% end %>
+            <% if policy(helicopter).edit? %>
+              <p class = "mr-2"> <%= link_to 'Edit', edit_helicopter_path(helicopter.id) %> </p>
+            <% end %>
+            <% if policy(helicopter).destroy? %>
+              <p class = "mr-2"> <%= link_to 'Remove', helicopter_path(helicopter.id), method: :delete, data: { confirm: 'Are you sure?' } %> </p>
+            <% end %>
           </div>
         </div>
       </div>

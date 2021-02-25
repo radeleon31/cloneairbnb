@@ -38,8 +38,4 @@ document.addEventListener('turbolinks:load', () => {
   loadDynamicBannerText();
   toggleNavbar();
 });
-<<<<<<< HEAD
-
-=======
->>>>>>> 989ea5adccd256bd8e313765cf53c77a4f88bf9e
 initFlatpickr();

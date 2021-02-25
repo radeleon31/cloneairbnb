@@ -1,14 +1,39 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top navbar-custom">
-  <%= link_to 'HelicopterRenting', root_path, class: 'navbar-brand' %>
-  <%= link_to 'Sign In', new_user_session_path , class: 'btn btn-outline-primary my-2 my-sm-0 ml-2' %>
-  <%= link_to 'Sign Up', new_user_registration_path , class: 'btn btn-outline-primary my-2 my-sm-0 ml-2' %>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <div class="ml-auto flex">
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" name="query" type="search" placeholder="Search" aria-label="Search" value="">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
+<nav class="nav-fixed">
+      <div class="nav-center">
+        <!-- nav header -->
+        <div class="nav-header">
+          <%= link_to 'HelicopterRenting', root_path, class: 'navbar-brand' %>
+          <button class="nav-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+        <!-- links -->
+        
+        <ul class="links">
+          <li>
+            <form class="navbar-form navbar-left" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <button type="submit" class="btn btn-flat">Search</button>
+            </form>
+          </li>
+          <li>
+            
+          </li>
+          <li>
+          <button type="button" class="btn btn-flat">
+            <%= link_to 'Sign In', new_user_session_path%>
+          </button>
+            
+    
+          </li>
+          <li>
+          <button type="button" class="btn btn-flat">
+            <%= link_to 'Sign Up', new_user_registration_path %>
+          </button>
+            
+          </li>
+        </ul>
+      </div>
+    </nav>

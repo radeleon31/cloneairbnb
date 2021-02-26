@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
   def index
     # @helicopters = Helicopter.find(params[:helicopter_id])
     # authorize @booking
-    @booking = policy_scope(Booking)
+    @bookings = policy_scope(Booking)
 
   end
 

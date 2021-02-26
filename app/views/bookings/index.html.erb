@@ -1,26 +1,24 @@
+<div class="container mt-3">
+  <div class="row margin-row">
+    <div class="col-12">
+      <h1>All your bookings: (<%= @bookings.count %>) </h1>
+    </div>
+  </div>
 
-<div class="container mt-8">
-  <div class="row">
-    <% @booking.each do |booking| %>
-      <div class="card-product col-12 col-md-10 mt-5">
-        <% helicopter = Helicopter.find(booking.helicopter_id)%>
-        <img url=('<%= cl_image_path helicopter.photo.key %>')   />
-        <div class="helicopter-card-image" style="background-image: url('<%= cl_image_path helicopter.photo.key%>')"></div>
-
-         <div class="card-product-infos d-flex">
-          <h2>Booking Helicopter <%= helicopter.description %> </h2>
-
-          <p class = "mr-2"> <%= link_to 'Remove', booking_path(booking.id), method: :delete, data: { confirm: 'Are you sure?' } %> </p>
-          
-          <h2>Total Hours <%= (booking.end_date - booking.start_date) / 3_600  %></h2>        
-          <h2>Total Amount <%= number_to_currency(booking.total_amount) %></h2>
-          <h2>Start Date <%= booking.start_date %> %></h2>
-          <h2>End Date <%= booking.end_date %>   %></h2>
-          <p>Status Booking <strong><%= booking.status %></strong> </p>
-          <p>Reservation  date  <strong><%= booking.created_at %></strong> </p>
-          <%# @helicopters = Helicopter.find(params[:helicopter_id]) %>
-
-      </div>
+  <div class="row align-items-center">
+    <% @bookings.each do |booking| %>
+      <div class="card mr-3" style="width: 18rem;">
+       <%= cl_image_tag(booking.helicopter.photo.key, width: 300, height: 100, crop: :fill, class:"card-img-top") %>
+        <div class="card-header">
+          Booking details:
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"> <%= booking.helicopter.description  %></li>
+          <li class="list-group-item"> <strong> Hours: <%= (booking.end_date - booking.start_date) / 3_600  %></strong> </li>
+          <li class="list-group-item"> <strong> Total: <%= number_to_currency(booking.total_amount) %></strong></li>
+          <li class="list-group-item"> <strong> From <%= booking.start_date.day %>/ <%= booking.start_date.month %>/ <%= booking.start_date.year %> <%= booking.start_date.hour %>hr</strong></li>
+          <li class="list-group-item"> <strong>To: <%= booking.end_date.day %>/ <%= booking.end_date.month %>/ <%= booking.end_date.year %>  <%= booking.end_date.hour %>hr</strong></li>
+        </ul>
       </div>
     <% end %>
   </div>

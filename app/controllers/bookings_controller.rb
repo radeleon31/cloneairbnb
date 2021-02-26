@@ -15,10 +15,11 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.helicopter = @helicopter
     @booking.status = true
-    @booking.total_amount = @helicopter.price_hour * (@booking.end_date - @booking.start_date) / 3_600
-    
-    if @booking.save
-      redirect_to bookings_path
+    if @booking.end_date
+      @booking.total_amount = @helicopter.price_hour * (@booking.end_date - @booking.start_date) / 3_600
+      if @booking.save
+        redirect_to bookings_path
+      end
     else
       render "helicopters/show", object: @helicopter
     end

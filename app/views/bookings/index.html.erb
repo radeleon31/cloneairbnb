@@ -1,3 +1,4 @@
+
 <div class="container mt-3">
   <div class="row margin-row">
     <div class="col-12">
@@ -5,7 +6,6 @@
       <%= link_to "Back to search", helicopters_path, class:"text-secondary mb-3"%>
     </div>
   </div>
-
   <div class="row align-items-center mt-3">
     <% @bookings.each do |booking| %>
       <div class="card mr-3" style="width: 18rem;">
@@ -19,8 +19,18 @@
           <li class="list-group-item"> <strong> Total: <%= number_to_currency(booking.total_amount) %></strong></li>
           <li class="list-group-item"> <strong> From <%= booking.start_date.day %>/ <%= booking.start_date.month %>/ <%= booking.start_date.year %> <%= booking.start_date.hour %>hr</strong></li>
           <li class="list-group-item"> <strong>To: <%= booking.end_date.day %>/ <%= booking.end_date.month %>/ <%= booking.end_date.year %>  <%= booking.end_date.hour %>hr</strong></li>
+          <li class="list-group-item"> <%= link_to 'Review', new_booking_booking_review_path(booking.id) %> </li>
         </ul>
       </div>
     <% end %>
   </div>
 </div>
+
+
+
+
+
+
+
+
+

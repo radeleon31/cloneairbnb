@@ -17,6 +17,7 @@ class HelicoptersController < ApplicationController
 
   def show
     @booking = Booking.new
+    @booking_review = BookingReview.new
   end
 
   def new

@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container mb-5">
   <h2>Leave Your Review Here </h2>
 
   <%= simple_form_for([@booking, @booking_review]) do |f| %>
     <%= f.input :description, as: :text %>
-    <%= f.button :submit %>
+    <%= f.button :submit, :class => "btn btn-primary" %>
   <% end %>
 </div>

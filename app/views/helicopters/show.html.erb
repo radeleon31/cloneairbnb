@@ -30,8 +30,15 @@
               <%= f.button :submit, class: "btn btn-success w-100" %>
              <% end %>
          </div>
+         <div class="notification">
+          <div class="notification-content"  >
+            <p class="text-center">Hour to <strong>Booking</strong></p>
+            <h2 class="text-center" id="hour_total" data-hour=<%= @helicopter.price_hour %>> 00</h2>
+            <p class="text-center">Total Amount<strong> Booking </strong></p>
+            <h2 class=" text-center" id="price_total" data-price=<%= (@helicopter.price_hour) %> >00 $</h2>
+          </div>
          <div >
-          <p id="price_total" data-price=<%= @helicopter.price_hour %> ></p>
+    
          </div>
         </div>
       </div>

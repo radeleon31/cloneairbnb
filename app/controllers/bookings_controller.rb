@@ -25,9 +25,16 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking = Booking.find(params[:helicopter_id])
-    authorize @booking
-    @booking.destroy
+    # @booking = Booking.find(params[:helicopter_id])
+
+    @booking = policy_scope(Booking)
+    # authorize @booking
+    # @booking.destroy
+    # respond_to do |format|
+    #   format.html { redirect_to posts_url, notice: 'Bill was successfully destroyed.' }
+    #   format.json { head :no_content }
+    # end
+
   end
 
   private

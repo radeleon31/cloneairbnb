@@ -5,15 +5,16 @@
       <div class="card-product col-12 col-md-10">
         <% helicopter = Helicopter.find(booking.helicopter_id)%>
          <img url=('<%= cl_image_path helicopter.photo.key %>') />
-         <div class="card-product-infos ">
+         <div class="card-product-infos d-flex ">
           <h2>Booking Helicopter <%= helicopter.description %> </h2>
-          <h2>Total Hours <%= (booking.end_date - booking.start_date) / 3_600  %></h2>        
+          <h2>Total Hours <%= (booking.end_date - booking.start_date) / 3_600  %></h2>
           <h2>Total Amount <%= number_to_currency(booking.total_amount) %></h2>
           <h2>Start Date <%= booking.start_date %> %></h2>
           <h2>End Date <%= booking.end_date %>   %></h2>
           <p>Status Booking <strong><%= booking.status %></strong> </p>
           <p>Reservation  date  <strong><%= booking.created_at %></strong> </p>
           <%# @helicopters = Helicopter.find(params[:helicopter_id]) %>
+          <p class = "mr-2"> <%= link_to 'Review', new_booking_booking_review_path(booking.id) %> </p>
         </div>
       </div>
     <% end %>

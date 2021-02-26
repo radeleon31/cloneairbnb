@@ -7,11 +7,11 @@ class HelicoptersController < ApplicationController
     else
       @helicopters = policy_scope(Helicopter)
     end
-    
   end
 
   def show
     @booking = Booking.new
+    @booking_review = BookingReview.new
   end
 
   def new

@@ -5,7 +5,6 @@ class BookingsController < ApplicationController
     # @helicopters = Helicopter.find(params[:helicopter_id])
     # authorize @booking
     @booking = policy_scope(Booking)
-
   end
 
   def create
@@ -16,7 +15,7 @@ class BookingsController < ApplicationController
     @booking.helicopter = @helicopter
     @booking.status = true
     @booking.total_amount = @helicopter.price_hour * (@booking.end_date - @booking.start_date) / 3_600
-    
+
     if @booking.save
       redirect_to bookings_path
     else

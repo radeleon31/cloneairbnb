@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   resources :helicopters do
     resources :bookings, only: [:new, :create]
   end
-  resources :bookings, only: [:destroy, :index]
+  resources :bookings, only: [:destroy, :index] do
+   resources :booking_reviews, only: [:show, :new, :create, :destroy]
+ end
 end

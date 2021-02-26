@@ -17,7 +17,23 @@
             <h3>Occupancy: <%= @helicopter.occupancy %> <i class="fas fa-male"></i> </h3>
             <h3>Autonomy: <%= @helicopter.autonomy %> Km</h3>
             <h3>Model: <%= @helicopter.category %> <i class="fas fa-helicopter"></i></h3>
-            <h3>Departure city: <%= @helicopter.city %> <i class="fas fa-globe-europe"></i></h3>
+            <h3>Departure City: <%= @helicopter.city %> <i class="fas fa-globe-europe"></i></h3>
+            </div>
+             <div class="flat-show-card">
+            <h3><%= pluralize @helicopter.booking_reviews.size, "Review" %></h3>
+            <div id="reviews">
+              <% if @helicopter.booking_reviews.blank? %>
+                Positive reviews from awesome customers like you help others to feel
+                confident about choosing HeliRent too. Could you take 60 seconds
+                after your expenrience and share your thoughts?
+                We will be forever grateful. Thank you in advance for helping us out!
+
+              <% else %>
+                <% @helicopter.booking_reviews.each do |review| %>
+                <p><%= review.description %></p>
+              <% end %>
+            <% end %>
+            </div>
         </div>
       </div>
       <div class="col-4">
@@ -32,13 +48,13 @@
          </div>
          <div class="notification">
           <div class="notification-content"  >
-            <p class="text-center">Hour to <strong>Booking</strong></p>
-            <h2 class="text-center" id="hour_total" data-hour=<%= @helicopter.price_hour %>> 00</h2>
-            <p class="text-center">Total Amount<strong> Booking </strong></p>
-            <h2 class=" text-center" id="price_total" data-price=<%= (@helicopter.price_hour) %> >00 $</h2>
+            <p class="text-center">Hours <strong>Booked</strong></p>
+            <h2 class="text-center" id="hour_total" data-hour=<%= @helicopter.price_hour %>> 00:00</h2>
+            <p class="text-center">Total<strong> Amount </strong></p>
+            <h2 class=" text-center" id="price_total" data-price=<%= (@helicopter.price_hour) %> >$ 00 </h2>
           </div>
          <div >
-    
+
          </div>
         </div>
       </div>

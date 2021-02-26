@@ -2,7 +2,7 @@ const initUpdateNavbarOnScroll = () => {
   const navbar = document.querySelector('.nav-fixed');
   if (navbar) {
     window.addEventListener('scroll', () => {
-      if (window.scrollY >= window.innerHeight) {
+      if (window.scrollY >= (window.innerHeight / 5)) {
         navbar.classList.add('back-white');
       } else {
         navbar.classList.remove('back-white');

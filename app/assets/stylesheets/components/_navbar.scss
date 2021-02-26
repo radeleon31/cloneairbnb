@@ -4,6 +4,7 @@ Navbar
 ===============
 */
 
+
 .back-white{
   background: white;
 }
@@ -13,6 +14,7 @@ Navbar
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
   overflow: hidden;
+  z-index: 2;
 }
 nav {
   background: transparent;
@@ -27,7 +29,7 @@ nav {
 }
 .nav-toggle {
   
-  color: hsl(205, 78%, 60%);
+  color: hsl(307, 80%, 50%);
   background: transparent;
   border-color: transparent;
   transition: all 0.3s linear;
@@ -79,8 +81,13 @@ nav {
   color:#9955cc;
 }
 
-.brand-one:hover,.brand-two:hover {
-  color: #FFFFFF;
+.brand-one:hover {
+  color: #9955cc;
+  text-decoration: none;
+}
+
+.brand-two:hover {
+  color: #dd1188;
   text-decoration: none;
 }
 

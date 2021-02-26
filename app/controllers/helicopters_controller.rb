@@ -2,7 +2,17 @@ class HelicoptersController < ApplicationController
   before_action :set_helicopter, only: [:show, :edit, :update, :destroy]
 
   def index
-    @helicopters = policy_scope(Helicopter)
+    if params[:query].present?
+      @helicopters = policy_scope(Helicopter.search_by_all_helicopter_properties(params[:query]))
+    else
+      @helicopters = policy_scope(Helicopter)
+    end
+    @markers = @helicopters.geocoded.map do |helicopter|
+      {
+        lat: helicopter.latitude,
+        lng: helicopter.longitude
+      }
+    end
   end
 
   def show

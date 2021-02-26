@@ -6,12 +6,21 @@
     </div>
   </div>
 
-  <div class="row align-items-center mt-3">
-    <% @bookings.each do |booking| %>
-      <div class="card mr-3" style="width: 18rem;">
-       <%= cl_image_tag(booking.helicopter.photo.key, width: 300, height: 100, crop: :fill, class:"card-img-top") %>
-        <div class="card-header">
-          Booking details:
+<div class="container mt-8">
+  <div class="row">
+    <% @booking.each do |booking| %>
+      <div class="card-product col-12 col-md-10">
+        <% helicopter = Helicopter.find(booking.helicopter_id)%>
+         <img url=('<%= cl_image_path helicopter.photo.key %>') />
+        <div class="card-product-infos ">
+          <h2>Booking Helicopter <%= helicopter.description %> </h2>
+          <h2>Total Hours <%= (booking.end_date - booking.start_date) / 3_600  %></h2>        
+          <h2>Total Amount <%= number_to_currency(booking.total_amount) %></h2>
+          <h2>Start Date <%= booking.start_date %> %></h2>
+          <h2>End Date <%= booking.end_date %>   %></h2>
+          <p>Status Booking <strong><%= booking.status %></strong> </p>
+          <p>Reservation  date  <strong><%= booking.created_at %></strong> </p>
+          <%# @helicopters = Helicopter.find(params[:helicopter_id]) %>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item"> <%= booking.helicopter.description  %></li>

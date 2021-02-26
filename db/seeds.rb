@@ -69,7 +69,7 @@ helicopter2 = Helicopter.new(
 )
 
 helicopter2.user = user1
-file = URI.open('hhttps://assets.newatlas.com/dims4/default/64e414a/2147483647/strip/true/crop/1800x1200+0+27/resize/1200x800!/quality/90/?url=http%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Farchive%2Fec145-mercedes-benz-style.jpg')
+file = URI.open('https://assets.newatlas.com/dims4/default/64e414a/2147483647/strip/true/crop/1800x1200+0+27/resize/1200x800!/quality/90/?url=http%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Farchive%2Fec145-mercedes-benz-style.jpg')
 helicopter2.photo.attach(io: file, filename: 'helicopter-1.png', content_type: 'image/png')
 helicopter2.save!
 

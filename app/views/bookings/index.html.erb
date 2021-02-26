@@ -2,10 +2,11 @@
   <div class="row margin-row">
     <div class="col-12">
       <h1>All your bookings: (<%= @bookings.count %>) </h1>
+      <%= link_to "Back to search", helicopters_path, class:"text-secondary mb-3"%>
     </div>
   </div>
 
-  <div class="row align-items-center">
+  <div class="row align-items-center mt-3">
     <% @bookings.each do |booking| %>
       <div class="card mr-3" style="width: 18rem;">
        <%= cl_image_tag(booking.helicopter.photo.key, width: 300, height: 100, crop: :fill, class:"card-img-top") %>

@@ -7,7 +7,12 @@ class HelicoptersController < ApplicationController
     else
       @helicopters = policy_scope(Helicopter)
     end
-    
+    @markers = @helicopters.geocoded.map do |helicopter|
+      {
+        lat: helicopter.latitude,
+        lng: helicopter.longitude
+      }
+    end
   end
 
   def show

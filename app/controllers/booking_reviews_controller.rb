@@ -1,9 +1,11 @@
 class BookingReviewsController < ApplicationController
 before_action :set_review, only: [:show]
+skip_after_action :verify_authorized
 
    def new
     @booking_review = BookingReview.new
     authorize @booking_review
+    @booking = Booking.find(params[:booking_id])
   end
 
   def show
@@ -12,20 +14,21 @@ before_action :set_review, only: [:show]
   end
 
   def create
-    @helicopter = Helicopter.find(params[:helicopter_id])
+    @booking = Booking.find(params[:booking_id])
     @booking_review = BookingReview.new(review_params)
-    @booking_review.helicopter = @helicopter
+    @booking_review.booking = @booking
+    @booking_review.helicopter = @booking.helicopter
     if @booking_review.save
-      redirect_to helicoper_path(@helicopter)
+      redirect_to helicopter_path(@booking.helicopter)
     else
-      render 'helicopter/show'
+      render 'booking_reviews/show'
     end
   end
 
   private
 
   def review_params
-    params.require(:review).permit(:content)
+    params.require(:booking_review).permit(:description)
   end
 
   def set_review

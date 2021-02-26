@@ -17,11 +17,13 @@ class BookingsController < ApplicationController
     @booking.status = true
     if @booking.end_date
       @booking.total_amount = @helicopter.price_hour * (@booking.end_date - @booking.start_date) / 3_600
+    end
+    # if @booking.total_amount
       if @booking.save
-        redirect_to bookings_path
-      end
-    else
-      render "helicopters/show", object: @helicopter
+        # flash[:success] = "Booking created!"
+        redirect_to bookings_path, notice: "Booking created"
+      else
+        render "helicopters/show", object: @helicopter
     end
   end
 

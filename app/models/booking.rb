@@ -3,11 +3,11 @@ class Booking < ApplicationRecord
   belongs_to :helicopter
 
   validates :start_date, :end_date, :total_amount,    presence: true
-  validate :end_mayor_to_star_is_possible?
+  # validate :end_mayor_to_star_is_possible?
 
   def end_mayor_to_star_is_possible?
     if start_date >= end_date
-      errors.add(:end_date, 'date no valid')
+      errors.add(:end_date, 'no valid')
     end
   end
 end

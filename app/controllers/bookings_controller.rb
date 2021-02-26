@@ -2,7 +2,8 @@ class BookingsController < ApplicationController
   #definir acción para cada tipo de usuario con current_user.bookings (usando su propia ruta).
 
   def index
-    @helicopters = Helicopter.find(params[:helicopter_id])
+    # @helicopters = Helicopter.find(params[:helicopter_id])
+    # authorize @booking
     @booking = policy_scope(Booking)
 
   end
@@ -14,10 +15,10 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.helicopter = @helicopter
     @booking.status = true
-    @booking.total_amount = 5555.77
+    @booking.total_amount = @helicopter.price_hour * (@booking.end_date - @booking.start_date) / 3_600
+    
     if @booking.save
-      # redirect_to helicopter_path(@helicopter), notice: "Booked!"
-      redirect_to helicopter_bookings_path(@helicopter)
+      redirect_to bookings_path
     else
       render "helicopters/show", object: @helicopter
     end

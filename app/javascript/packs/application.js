@@ -32,6 +32,8 @@ import { bookingTotalPrice } from "../components/bookingTotalPrice";
 import { initUpdateNavbarOnScroll, toggleNavbar  } from '../components/navbar';
 import { loadDynamicBannerText } from '../components/banner';
 import { initFlatpickr } from "../plugins/flatpickr";
+import { initMapbox } from '../plugins/init_mapbox';
+
 import { start } from "turbolinks";
 
 document.addEventListener('turbolinks:load', () => {
@@ -41,5 +43,6 @@ document.addEventListener('turbolinks:load', () => {
   toggleNavbar();
   initFlatpickr();
   bookingTotalPrice();
+  initMapbox();
 });
 

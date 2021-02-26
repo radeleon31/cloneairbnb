@@ -14,12 +14,24 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.helicopter = @helicopter
     @booking.status = true
+<<<<<<< HEAD
     @booking.total_amount = @helicopter.price_hour * (@booking.end_date - @booking.start_date) / 3_600
 
     if @booking.save
       redirect_to bookings_path
     else
       render "helicopters/show", object: @helicopter
+=======
+    if @booking.end_date
+      @booking.total_amount = @helicopter.price_hour * (@booking.end_date - @booking.start_date) / 3_600
+    end
+    # if @booking.total_amount
+      if @booking.save
+        # flash[:success] = "Booking created!"
+        redirect_to bookings_path, notice: "Booking created"
+      else
+        render "helicopters/show", object: @helicopter
+>>>>>>> master
     end
   end
 

@@ -9,7 +9,7 @@ const initFlatpickr = () => {
             "enableTime": true,
             // dateFormat: "D-m-Y-H-i",
             minDate: "today",
-            maxDate: new Date().fp_incr(7) // 14 days from now
+            maxDate: new Date().fp_incr(21) // 14 days from now
         });
     })
 }

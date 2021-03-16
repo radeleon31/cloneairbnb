@@ -10,7 +10,9 @@
       <div class="col-lg-4 col-sm-12">
         <div class="helicopter-card ">
           <%= link_to helicopter_path(helicopter.id) do %>
-          <div class="helicopter-card-image" style="background-image: url('<%= cl_image_path helicopter.photo.key%>')"></div>
+            <% if helicopter.photo.attached? %>
+              <div class="helicopter-card-image" style="background-image: url('<%= cl_image_path helicopter.photo.key%>')"></div>
+            <% end %>
           <div class="helicopter-card-content">
             <div class="helicopter-card-title">
               <h4>Model: <%= helicopter.category %></h4>

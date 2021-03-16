@@ -1,11 +1,12 @@
 <%# <div class="map" style="background-image: url('https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=1200')"></div> %>
-<div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @helicopter.photo.key%>);">
-  <div class="container">
-    <h1><%= @helicopter.category %></h1>
-    <h2><%= @helicopter.description.capitalize %></h2>
+<% if @helicopter.photo.attached? %>
+  <div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @helicopter.photo.key%>);">
+    <div class="container">
+      <h1><%= @helicopter.category %></h1>
+      <h2><%= @helicopter.description.capitalize %></h2>
+    </div>
   </div>
-</div>
-
+<% end %>
 
 <div class="container margin-top-negative">
   <div class="row">
